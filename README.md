@@ -84,12 +84,6 @@ old cross validation.
 
 
 
-Careful data preprocessing and dimensionality reduction leads to a perfect score of `100%` accuracy,f1-macro,precision and recal
-l with all the methods above. Methods perform reasonably well on the raw data as well with the accuracy of `96.4%` after the K-f
-old cross validation.
-
-
-
 ## Results 
 
 ###Comparision Between Baseline and Faulty Data
