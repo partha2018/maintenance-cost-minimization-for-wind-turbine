@@ -88,6 +88,14 @@ Careful data preprocessing and dimensionality reduction leads to a perfect score
 l with all the methods above. Methods perform reasonably well on the raw data as well with the accuracy of `96.4%` after the K-f
 old cross validation.
 
+
+
+## Results 
+
+###Comparision Between Baseline and Faulty Data
+
+![comparision](images/title2.png)
+
 ![clustering](images/title4.png)
 
 PCA and t-SNE both successfully reduced the dimensionality of the data and separate baseline and faulty data into different regions, which can be easily clustered.OPTICS nicely predicts faulty and baselines clusters. Also, detects outliers within data (shown in green). 
@@ -102,3 +110,17 @@ There is a clear class imbalance in the data. Faulty data is 4 times lower than 
 
 * **Not so perfect score in the confusion matrix and faulty class has been as predicted as baseline in 2,2 occasions in both test and validation data respectively after Machine Learning on Raw data. (bottom)**
 
+
+
+## Conclusion 
+
+* The distribution of baseline and faulty data is different in the time domain.
+* The distribution remains identical even for 1000 samples.
+* Statistically, both of the distributions are not skewed. However, faulty one has a very high kurtosis (more outliers) (i.e. no
+t close to gaussian distribution).
+* PCA and t-SNE both successfully reduced the dimensionality of the data and separate baseline and faulty data into different regi
+ons, which can be easily clustered.OPTICS nicely predicts faulty and baselines clusters. Also, detects outliers within data (sho
+wn in green)
+* Data preprocessing & dimensionality reduction leads to a perfect score of `100%` accuracy,f1-macro,precision and recal
+l with all the methods above. Methods perform reasonably well on the raw data as well with the accuracy of `96.4%` after the K-f
+old cross validation.
