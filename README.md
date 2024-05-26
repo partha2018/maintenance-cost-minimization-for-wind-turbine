@@ -12,11 +12,6 @@ Such a dent will cause distinct failure frequencies to appear as a function of t
  Every time the ball passes over a dent, it will cause a spike in vibration captured by the data acquisition equipment. This will cause harmonics of the fault frequency(BPFO) to appear in the vibration data as seen in Figure 2. Sometimes these harmonics will also appear at much higher frequencies than seen here, such as and often the low harmonics are not observed.
 
 
-In this project the Case Western Reserve University Ball bearings dataset is used. 
-
-## Material
-
-In the Python file &quot;case\_western.py&quot; it is shown how to import two HDF5 files containing vibration data from both a good and a faulty bearing. The data from the good bearing is found in &quot;x\_baseline.h5&quot; where 40 samples of 1 second each are found. The data from the faulty bearing is found in &quot;x\_fault.h5&quot; where 10 samples of 1 second each are found.
 
 ## Goals
 
@@ -33,25 +28,8 @@ The sensors fitted across different machines involved in the process of energy g
 
 
 
-### Machine Learning
-
-I used the following unsupervised and supervised machine Learning methods for this project : 
-
-*  **Principal Components Analysis**
-*  **t-SNE**
-*  **Clustering (OPTICS)**
-*  **Support Vector Machine (SVM) + Dimensionality Reduction**
-*  **XGBoost + FFT** 
-*  **Recurrents neural networks**
-
-Careful data preprocessing and dimensionality reduction leads to a perfect score of `100%` accuracy,f1-macro,precision and recal
-l with all the methods above. Methods perform reasonably well on the raw data as well with the accuracy of `96.4%` after the K-f
-old cross validation.
-
-
-
 ## Objective
-“ReneWind” is a company working on improving the machinery/processes involved in the production of wind energy using machine learning and has collected data of generator failure of wind turbines using sensors. They have shared a ciphered version of the data, as the data collected through sensors is confidential (the type of data collected varies with companies). Data has 40 predictors, 40000 observations in the training set and 10000 in the test set.
+“Vestas” is a company working on improving the machinery/processes involved in the production of wind energy using machine learning and has collected data of generator failure of wind turbines using sensors. They have shared a ciphered version of the data, as the data collected through sensors is confidential (the type of data collected varies with companies). Data has 40 predictors, 40000 observations in the training set and 10000 in the test set.
 
 The objective is to build various classification models, tune them and find the best one that will help identify failures so that the generator could be repaired before failing/breaking and the overall maintenance cost of the generators can be brought down. 
 
@@ -86,3 +64,41 @@ The value of this ratio will lie between 0 and 1, the ratio will be 1 only when 
 - Train.csv - To be used for training and tuning of models. 
 - Test.csv - To be used only for testing the performance of the final best model.
 - Both the datasets consist of 40 predictor variables and 1 target variable
+
+
+
+### Machine Learning
+
+I used the following unsupervised and supervised machine Learning methods for this project : 
+
+*  **Principal Components Analysis**
+*  **t-SNE**
+*  **Clustering (OPTICS)**
+*  **Support Vector Machine (SVM) + Dimensionality Reduction**
+*  **XGBoost + FFT** 
+*  **Recurrents neural networks**
+
+Careful data preprocessing and dimensionality reduction leads to a perfect score of `100%` accuracy,f1-macro,precision and recal
+l with all the methods above. Methods perform reasonably well on the raw data as well with the accuracy of `96.4%` after the K-f
+old cross validation.
+
+
+
+Careful data preprocessing and dimensionality reduction leads to a perfect score of `100%` accuracy,f1-macro,precision and recal
+l with all the methods above. Methods perform reasonably well on the raw data as well with the accuracy of `96.4%` after the K-f
+old cross validation.
+
+![clustering](images/title4.png)
+
+PCA and t-SNE both successfully reduced the dimensionality of the data and separate baseline and faulty data into different regions, which can be easily clustered.OPTICS nicely predicts faulty and baselines clusters. Also, detects outliers within data (shown in green). 
+
+![class distribution](images/title5.png)
+
+There is a clear class imbalance in the data. Faulty data is 4 times lower than baseline data.
+
+![confusion matrix](images/title6.png)
+
+* **Perfect score in the confusion matrix and both classes are predicted perfectly after dimensionality reduction  and Machine Learning (top).**
+
+* **Not so perfect score in the confusion matrix and faulty class has been as predicted as baseline in 2,2 occasions in both test and validation data respectively after Machine Learning on Raw data. (bottom)**
+
