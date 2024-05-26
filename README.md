@@ -1,4 +1,27 @@
-# ReneWind
+# Conditions Monitoring of Wind Turbines using Machine Learning and Data Analysis 
+
+
+Ball bearings are a crucial component in any wind turbine. The condition of the ball bearings is monitored to ensure no unexpected downtime of the turbine.
+
+ The ball bearings consists of an outer ring, balls, cage and the inner ring. The ball bearing can be damaged in several ways, where the most common is a dent in either the inner or the outer ring.
+
+
+![ball bearing](images/title1.png)
+
+Such a dent will cause distinct failure frequencies to appear as a function of the rotation speed of the shaft inside the ball bearing. The **&quot;Ball Pass Frequency Outer&quot;**(BPFO) is the frequencies which the balls passes over a single dent in the outer ring, this is typically specified as a multiple of rotation speed by the manufacturer.
+ Every time the ball passes over a dent, it will cause a spike in vibration captured by the data acquisition equipment. This will cause harmonics of the fault frequency(BPFO) to appear in the vibration data as seen in Figure 2. Sometimes these harmonics will also appear at much higher frequencies than seen here, such as and often the low harmonics are not observed.
+
+
+In this project the Case Western Reserve University Ball bearings dataset is used. 
+
+## Material
+
+In the Python file &quot;case\_western.py&quot; it is shown how to import two HDF5 files containing vibration data from both a good and a faulty bearing. The data from the good bearing is found in &quot;x\_baseline.h5&quot; where 40 samples of 1 second each are found. The data from the faulty bearing is found in &quot;x\_fault.h5&quot; where 10 samples of 1 second each are found.
+
+## Goals
+
+1. Find the difference between a good bearing and a faulty one? Maybe try to identify the BPFO.
+2. Use machine learning techniques to distinguish the good bearing from the faulty one.
 
 Renewable energy sources play an increasingly important role in the global energy mix, as the effort to reduce the environmental impact of energy production increases.
 
@@ -7,6 +30,23 @@ Out of all the renewable energy alternatives, wind energy is one of the most dev
 Predictive maintenance uses sensor information and analysis methods to measure and predict degradation and future component capability. The idea behind predictive maintenance is that failure patterns are predictable and if component failure can be predicted accurately and the component is replaced before it fails, the costs of operation and maintenance will be much lower.
 
 The sensors fitted across different machines involved in the process of energy generation collect data related to various environmental factors (temperature, humidity, wind speed, etc.) and additional features related to various parts of the wind turbine (gearbox, tower, blades, break, etc.). 
+
+
+
+### Machine Learning
+
+I used the following unsupervised and supervised machine Learning methods for this project : 
+
+*  **Principal Components Analysis**
+*  **t-SNE**
+*  **Clustering (OPTICS)**
+*  **Support Vector Machine (SVM) + Dimensionality Reduction**
+*  **XGBoost + FFT** 
+*  **Recurrents neural networks**
+
+Careful data preprocessing and dimensionality reduction leads to a perfect score of `100%` accuracy,f1-macro,precision and recal
+l with all the methods above. Methods perform reasonably well on the raw data as well with the accuracy of `96.4%` after the K-f
+old cross validation.
 
 
 
